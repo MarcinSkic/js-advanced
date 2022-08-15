@@ -97,12 +97,13 @@ let hamster = {
 
 //-----------------
 
-function Parent(){
+function Parent(test){
+    this.test = test
 }
 
 Parent.prototype.getName = function(){return this.name};
 
-function Child(name){
+function Child(name,test){
     this.name = name;
 }
 
@@ -110,7 +111,7 @@ Child.prototype = Object.create(Parent.prototype);
 
 let child = new Child("Jacuś");
 
-console.log(child.getName());
+console.log(child.getName(),child);
 
 
 //-------------NESTED CONSTRUCTORS--------------

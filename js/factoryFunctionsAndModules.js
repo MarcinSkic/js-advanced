@@ -58,6 +58,35 @@ let car2 = raceCarFactory('McLaren', 'Formula 1', 300);
 console.log(car2.getCar());
 console.log(car2.maxSpeed());
 
+//-----------COMPOSITION-----------------
+
+const driver = (state) => ({
+    drive: () => console.log(`${state.brand} is driving!`)
+})
+
+const tester = (testVariable) => ({
+    test: () => console.log(testVariable)
+});
+
+const carsFactory = (brand) => {
+    let state = {
+        brand
+    }
+
+    let testVariable = "I've been found!";
+
+    return Object.assign(
+        {},
+        driver(state),
+        tester(testVariable)
+    )
+}
+
+carsFactory('Mercedes').drive();
+carsFactory("Somecoar").test();
+
+
+
 //------------MODULE PATTERN--------------
 
 let stringUtilites = (function () {
@@ -69,3 +98,4 @@ let stringUtilites = (function () {
 })();
 
 console.log(stringUtilites.capitaliseFirstLetter("mama ma kota"));
+

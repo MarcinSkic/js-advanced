@@ -50,24 +50,6 @@ let obj = {
 let notBinded = obj.method;
 let binded = obj.method.bind(obj);
 
-console.log(notBinded())
-console.log(binded())
-
-//-----------COMPOSITION-----------------
-
-const driver = (state) => ({
-    drive: () => console.log(`${state.brand} is driving!`)
-})
-
-const carsFactory = (brand) => {
-    let state = {
-        brand
-    }
-    return Object.assign(
-        {},
-        driver(state)
-    )
-}
-
-carsFactory('Mercedes').drive();
+console.log(notBinded());
+console.log(binded());
 
